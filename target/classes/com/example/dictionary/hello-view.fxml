@@ -11,7 +11,7 @@
    <children>
       <HBox prefHeight="32.0" prefWidth="600.0">
          <children>
-            <TextArea prefHeight="57.0" prefWidth="435.0" />
+            <TextArea prefHeight="57.0" fx:id="searchText" prefWidth="435.0" />
             <Button mnemonicParsing="false" onAction="#searchWord" prefHeight="50.0" prefWidth="66.0" text="Button" />
          </children>
          <VBox.margin>

@@ -3,12 +3,17 @@ package com.example.dictionary;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import java.io.File;
+
+import javafx.scene.control.TextArea;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 public class MainDictionaryController {
     @FXML
     private Label welcomeText;
+
+    @FXML
+    private TextArea searchText;
 
     @FXML
     protected void playWord() {
@@ -20,6 +25,12 @@ public class MainDictionaryController {
 
     @FXML
     protected void searchWord() {
-        welcomeText.setText("AAAA");
+        welcomeText.setText(searchText.getText());
     }
+
+    @FXML
+    protected void getSearchInput() {
+        searchText.getText();
+    }
+
 }
