@@ -1,7 +1,7 @@
 package com.example.dictionary;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Paths;
 import java.util.* ;
-
-import javax.tools.OptionChecker;
 
 import java.io.* ;
 
@@ -42,14 +42,14 @@ public class DictionaryManagement
     {
         try
         {
-            File f = new File("dictionaries.txt") ;
-            Scanner sc = new Scanner(f) ;
+            String path = new File("src\\main\\java\\com\\example\\dictionary\\dictionaries.txt").getAbsolutePath();
+            Scanner sc = new Scanner(Paths.get(path), StandardCharsets.UTF_8) ;
 
             while(sc.hasNextLine())
             {
-                String line = sc.nextLine() ;
-                String[] items = line.split("\t") ;
-                dic.add(new Word(items[0], items[1])) ;
+                String target = sc.next() ;
+                String explain = sc.nextLine() ;
+                dic.add(new Word(target, target));
             }
 
             sc.close();
