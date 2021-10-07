@@ -42,7 +42,7 @@ public class DictionaryManagement
     {
         try
         {
-            String path = new File("src\\main\\java\\com\\example\\dictionary\\dictionaries.txt").getAbsolutePath();
+            String path = new File("src/main/java/com/example/dictionary/dictionaries.txt").getAbsolutePath();
             Scanner sc = new Scanner(Paths.get(path), StandardCharsets.UTF_8) ;
 
             while(sc.hasNextLine())
@@ -57,6 +57,7 @@ public class DictionaryManagement
         }
         catch(Exception e)
         {
+            System.out.print(e);
             System.out.println("Doc file khong thanh cong !") ;
         }
 
