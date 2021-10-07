@@ -1,3 +1,4 @@
+package com.example.dictionary;
 public class Word
 {
     private String word_target ;   // tu moi
@@ -37,6 +38,6 @@ public class Word
 
     public String toString()
     {
-        return this.word_target + "-" + this.word_explain ;
+        return this.word_target + "\t\t|" + this.word_explain ;
     }
 }

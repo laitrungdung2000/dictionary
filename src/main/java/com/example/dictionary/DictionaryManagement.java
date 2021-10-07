@@ -1,3 +1,4 @@
+package com.example.dictionary;
 import java.util.* ;
 
 import javax.tools.OptionChecker;
@@ -27,7 +28,7 @@ public class DictionaryManagement
         for(int i=0;i<n;i++)
         {
             System.out.println("Nhap tu thu " + (i+1) + ": ") ;
-            
+
             line1 = sc.nextLine() ;
             line2 = sc.nextLine() ;
 
@@ -41,9 +42,9 @@ public class DictionaryManagement
     {
         try
         {
-            File f = new File("dictionaries.txt") ;  
+            File f = new File("dictionaries.txt") ;
             Scanner sc = new Scanner(f) ;
-            
+
             while(sc.hasNextLine())
             {
                 String line = sc.nextLine() ;
@@ -51,12 +52,12 @@ public class DictionaryManagement
                 dic.add(new Word(items[0], items[1])) ;
             }
 
-            sc.close(); 
-            System.out.println("Doc file thanh cong !") ; 
+            sc.close();
+            System.out.println("Doc file thanh cong !") ;
         }
         catch(Exception e)
         {
-            System.out.println("Doc file khong thanh cong !") ; 
+            System.out.println("Doc file khong thanh cong !") ;
         }
 
         return dic ;
@@ -89,7 +90,7 @@ public class DictionaryManagement
                     System.out.println("Sua thanh cong !") ;
                     return dic ;
                 }
-            
+
             System.out.println("Khong tim thay tu trong tu dien !") ;
         }
         else if(chon == 2)
@@ -108,7 +109,7 @@ public class DictionaryManagement
                     System.out.println("Sua thanh cong !") ;
                     return dic ;
                 }
-            
+
             System.out.println("Khong tim thay tu trong tu dien !") ;
         }
         else
@@ -142,7 +143,7 @@ public class DictionaryManagement
                     System.out.println("Xoa thanh cong !") ;
                     return dic ;
                 }
-            
+
             System.out.println("Khong tim thay tu trong tu dien !") ;
         }
         else if(chon == 2)
@@ -159,7 +160,7 @@ public class DictionaryManagement
                     System.out.println("Sua thanh cong !") ;
                     return dic ;
                 }
-            
+
             System.out.println("Khong tim thay tu trong tu dien !") ;
         }
         else
@@ -167,7 +168,29 @@ public class DictionaryManagement
 
         return dic ;
     }
-    
+
+    public static void dictionarySearcher(ArrayList<Word> dic) {
+        Scanner sc = new Scanner(System.in);
+        String word_searcher = sc.nextLine() ;
+        for (Word item : dic) {
+            if (item.getWordTarget().startsWith(word_searcher)) {
+                System.out.println(item.getWordTarget() + ", ");
+            }
+        }
+    }
+
+    public static void dictionaryLookup(ArrayList<Word> dic) {
+        Scanner sc = new Scanner(System.in) ;
+        String word_lookup = sc.next();
+        for (Word item : dic) {
+            if (word_lookup.equals(item.getWordTarget())) {
+                System.out.println(item.toString());
+                return;
+            }
+        }
+        System.out.println("Không tìm thấy từ!");
+    }
+
     public static void main(String[] args)
     {
         Scanner sc = new Scanner(System.in) ;
