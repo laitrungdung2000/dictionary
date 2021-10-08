@@ -42,8 +42,7 @@ public class DictionaryManagement
     {
         try
         {
-            String path = new File("src/main/java/com/example/dictionary/dictionaries.txt").getAbsolutePath();
-            Scanner sc = new Scanner(Paths.get(path), StandardCharsets.UTF_8) ;
+            Scanner sc = new Scanner(Paths.get("dictionaries.txt"), StandardCharsets.UTF_8) ;
 
             while(sc.hasNextLine())
             {
