@@ -3,6 +3,8 @@ import java.io.* ;
 
 public class DictionaryManagement
 {
+    public static ArrayList<Word> wordArrayList = new ArrayList<>;
+
     public ArrayList<Word> insertFromCommandline(ArrayList<Word> dic)
     {
         Scanner sc = new Scanner(System.in) ;
@@ -175,5 +177,27 @@ public class DictionaryManagement
         {
             System.out.println("Ghi du lieu ra file khong thanh cong") ; 
         }
+    }
+
+    public static ArrayList<word> dictionarySearcher(String searchWord) {
+        ArrayList<Word> resWords = new ArrayList<>;
+        for (Word item : wordArrayList) {
+            if (item.getWordTarget().startsWith(searchWord)) {
+                resWords.add(item);
+            }
+        }
+        return resWords;
+    }
+
+    public static Word dictionaryLookup(String word_lookup) {
+        ArrayList<word> searchedWords = dictionarySearcher(word_lookup);
+        Word resWord = new Word();
+        for (Word item : searchedWords) {
+            if (word_lookup.equals(item.getWordTarget())) {
+                resWord = item;
+                break
+            }
+        }
+        return resWord;
     }
 }
