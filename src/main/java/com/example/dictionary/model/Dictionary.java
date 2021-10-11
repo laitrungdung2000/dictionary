@@ -18,11 +18,11 @@ public final class Dictionary
         Dictionary.dic.add(dic) ;
     }
 
-    public static void insertFromFile()
+    public static void insertFromFile(String path)
     {
         try
         {
-            File f = new File("dictionaries.txt") ;
+            File f = new File(path) ;
             Scanner sc = new Scanner(f) ;
 
             while(sc.hasNextLine())

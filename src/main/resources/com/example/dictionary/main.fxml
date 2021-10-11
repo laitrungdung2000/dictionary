@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -16,6 +17,7 @@
       </Text>
       <TextField fx:id="searchText" layoutX="14.0" layoutY="44.0" onKeyTyped="#onChangeInputText" prefHeight="36.0" prefWidth="200.0" promptText="Enter here..." />
       <Button layoutX="255.0" layoutY="49.0" mnemonicParsing="false" onAction="#openAddDialog" text="Add Word" />
-      <ListView fx:id="listSearchWords" layoutX="14.0" layoutY="84.0" prefHeight="316.0" prefWidth="200.0" />
+      <ListView fx:id="listSearchWords" layoutX="14.0" layoutY="84.0" onMouseClicked="#showSelectedWord" prefHeight="316.0" prefWidth="200.0" />
+      <TextArea fx:id="explainTextArea" editable="false" layoutX="229.0" layoutY="84.0" prefHeight="316.0" prefWidth="370.0" />
    </children>
 </AnchorPane>

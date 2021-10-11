@@ -24,18 +24,7 @@ public class DictionaryApplication extends Application {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        File f = new File("dictionaries.txt") ;
-        Scanner sc = new Scanner(f) ;
-
-        while(sc.hasNextLine())
-        {
-            String line = sc.nextLine() ;
-            String[] items = line.split("\t") ;
-            Dictionary.setDic(new Word(items[0], items[1])) ;
-        }
-
-        sc.close();
-        System.out.println("Doc file thanh cong !") ;
+        Dictionary.insertFromFile("dictionaries.txt");
         launch();
     }
 }
