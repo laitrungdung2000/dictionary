@@ -36,8 +36,6 @@ public class MainDictionaryController {
 
     @FXML
     protected void searchWord() {
-        //System.out.print(Dictionary.getDic());
-//        welcomeText.setText(searchText.getText());
         String textSearch = searchText.getText();
         ArrayList<Word> wordSearchResults = Dictionary.dictionarySearcher(textSearch);
         System.out.print(wordSearchResults);
@@ -54,7 +52,7 @@ public class MainDictionaryController {
 
     @FXML
     protected void openAddDialog() throws IOException {
-
+        System.out.print(getClass().getResource(""));
         Parent root = FXMLLoader.load(getClass().getResource("create-word-dialog.fxml"));
         Dialog dialog = new Dialog();
         dialog.getDialogPane().setContent(root);

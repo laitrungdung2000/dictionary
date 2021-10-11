@@ -7,16 +7,7 @@ public final class Dictionary
 {
     private static ArrayList<Word> dic = new ArrayList<Word>();
 
-//    public Dictionary()
-//    {
-//        this.dic = new ArrayList<Word>() ;
-//    }
-//
-//    public Dictionary(ArrayList<Word> dic)
-//    {
-//        this.dic = dic ;
-//    }
-    private  Dictionary(){}
+
     public static ArrayList<Word> getDic()
     {
         return dic ;
@@ -27,29 +18,29 @@ public final class Dictionary
         Dictionary.dic.add(dic) ;
     }
 
-//    public void insertFromFile()
-//    {
-//        try
-//        {
-//            File f = new File("dictionaries.txt") ;
-//            Scanner sc = new Scanner(f) ;
-//
-//            while(sc.hasNextLine())
-//            {
-//                String line = sc.nextLine() ;
-//                String[] items = line.split("\t") ;
-//                dic.add(new Word(items[0], items[1])) ;
-//            }
-//
-//            sc.close();
-//            System.out.println("Doc file thanh cong !") ;
-//        }
-//        catch(Exception e)
-//        {
-//
-//            System.out.println("Doc file khong thanh cong: " + e) ;
-//        }
-//    }
+    public static void insertFromFile()
+    {
+        try
+        {
+            File f = new File("dictionaries.txt") ;
+            Scanner sc = new Scanner(f) ;
+
+            while(sc.hasNextLine())
+            {
+                String line = sc.nextLine() ;
+                String[] items = line.split("\t") ;
+                dic.add(new Word(items[0], items[1])) ;
+            }
+
+            sc.close();
+            System.out.println("Doc file thanh cong !") ;
+        }
+        catch(Exception e)
+        {
+
+            System.out.println("Doc file khong thanh cong: " + e) ;
+        }
+    }
     public static ArrayList<Word> dictionarySearcher(String searchWord) {
         ArrayList<Word> resWords = new ArrayList<Word>();
         for (Word item : dic) {

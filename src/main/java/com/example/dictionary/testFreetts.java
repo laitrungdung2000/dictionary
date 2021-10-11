@@ -17,7 +17,7 @@ public class testFreetts {
             voice.setRate(190);
             voice.setPitch(100);
             voice.setVolume(3);
-            voice.speak("health");
+            voice.speak("helo i am dung");
         } catch (Exception e) {
             e.printStackTrace();
         }
