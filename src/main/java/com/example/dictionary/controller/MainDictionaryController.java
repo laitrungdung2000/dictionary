@@ -2,6 +2,8 @@ package com.example.dictionary.controller;
 
 import com.example.dictionary.model.Dictionary;
 import com.example.dictionary.model.Word;
+import com.sun.speech.freetts.Voice;
+import com.sun.speech.freetts.VoiceManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -41,15 +43,30 @@ public class MainDictionaryController {
     void showSelectedWord() {
         String targetWord = listSearchWords.getSelectionModel().getSelectedItem();
         Word resWord = Dictionary.dictionaryLookup(targetWord);
-        explainTextArea.setText(resWord.getWordExplain());
+        explainTextArea.setText(resWord.getWordTarget() + "\n" + resWord.getWordExplain());
     }
 
     @FXML
     protected void playWord() {
-        String bip = "test.mp3";
-        Media hit = new Media(new File(bip).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(hit);
-        mediaPlayer.play();
+//        String bip = "test.mp3";
+//        Media hit = new Media(new File(bip).toURI().toString());
+//        MediaPlayer mediaPlayer = new MediaPlayer(hit);
+//        mediaPlayer.play();
+        System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
+        Voice voice = VoiceManager.getInstance().getVoice("kevin");
+        ;
+        if (voice != null) {
+            voice.allocate();
+        }
+        try {
+            voice.setRate(190);
+            voice.setPitch(100);
+            voice.setVolume(3);
+            String[] parts = explainTextArea.getText().split("\n");
+            voice.speak(parts[0]);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
