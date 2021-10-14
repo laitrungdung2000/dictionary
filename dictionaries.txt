@@ -27,8 +27,5 @@ run	chay
 approximately	xap xi
 army hero	anh hung quan doi
 arms	binh khi
-arts and crafts	
-bag	bao tai
-bacon	ba chi
-ball	qua bong
-dung	dep trai
+dung2	so dep
+dung	2
