@@ -11,17 +11,18 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.controller.MainDictionaryController">
    <children>
-      <Text layoutX="30.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dictionary">
+      <Text layoutX="30.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dictionary" AnchorPane.topAnchor="6.0">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <TextField fx:id="searchText" layoutX="14.0" layoutY="44.0" onKeyTyped="#onChangeInputText" prefHeight="36.0" prefWidth="200.0" promptText="Enter here..." />
-      <Button layoutX="255.0" layoutY="49.0" mnemonicParsing="false" onAction="#openAddDialog" text="Add Word" />
-      <ListView fx:id="listSearchWords" layoutX="14.0" layoutY="84.0" onMouseClicked="#showSelectedWord" prefHeight="316.0" prefWidth="200.0" />
-      <TextArea fx:id="explainTextArea" editable="false" layoutX="229.0" layoutY="84.0" onMouseClicked="#playWord" prefHeight="316.0" prefWidth="370.0">
+      <TextField fx:id="searchText" layoutX="14.0" layoutY="44.0" onKeyTyped="#onChangeInputText" prefHeight="36.0" prefWidth="200.0" promptText="Enter here..." AnchorPane.bottomAnchor="322.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="42.0" />
+      <Button layoutX="514.0" layoutY="9.0" mnemonicParsing="false" onAction="#openAddDialog" text="Add Word" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="8.0" />
+      <ListView fx:id="searchedWordsList" layoutX="14.0" layoutY="84.0" onMouseClicked="#showSelectedWord" prefHeight="316.0" prefWidth="200.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="80.0" />
+      <TextArea fx:id="explainTextArea" editable="false" layoutX="229.0" layoutY="84.0" prefHeight="316.0" prefWidth="361.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="80.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></TextArea>
+      <Button fx:id="audioButton" disable="true" layoutX="575.0" layoutY="84.0" mnemonicParsing="false" onAction="#onAudioButtonClick" text="▶" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="80.0" />
    </children>
 </AnchorPane>

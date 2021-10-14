@@ -2,6 +2,10 @@ package com.example.dictionary.model;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Paths;
 import java.util.* ;
 
 public final class Dictionary
@@ -23,27 +27,33 @@ public final class Dictionary
     {
         try
         {
-            File f = new File(path) ;
-            Scanner sc = new Scanner(f) ;
-
-            while(sc.hasNextLine())
-            {
-                String line = sc.nextLine() ;
-                String[] items = line.split("\t") ;
-                dic.add(new Word(items[0], items[1])) ;
+            String filePath = new File(path).getAbsolutePath();
+            Scanner scanner = new Scanner(Paths.get(filePath)
+                    , StandardCharsets.UTF_8);
+            while (scanner.hasNextLine()) {
+                StringBuilder explain = new StringBuilder();
+                String target = scanner.nextLine();
+                explain.append(target + "\n");
+                while(scanner.hasNextLine()) {
+                    String temp = scanner.nextLine();
+                    if (temp.equals("")) {
+                        break;
+                    }
+                    explain.append(temp + "\n");
+                }
+                Word newWord = new Word(target, explain.toString());
+                dic.add(newWord);
             }
-
-            sc.close();
+            scanner.close();
             System.out.println("Doc file thanh cong !") ;
         }
         catch(Exception e)
         {
-
             System.out.println("Doc file khong thanh cong: " + e) ;
         }
     }
     public static ArrayList<Word> dictionarySearcher(String searchWord) {
-        ArrayList<Word> resWords = new ArrayList<Word>();
+        ArrayList<Word> resWords = new ArrayList<>();
         for (Word item : dic) {
             if (item.getWordTarget().startsWith(searchWord)) {
                 resWords.add(item);
@@ -67,14 +77,13 @@ public final class Dictionary
     public static void dictionaryExportToFile() {
         try
         {
-            FileWriter f = new FileWriter("dictionaries.txt") ;
-
-            for(Word i:dic)
-                f.write(i.toString()+"\n") ;
-
-            f.close() ;
-
-            System.out.println("Ghi du lieu ra file thanh cong") ;
+            String path = new File("dictionaries1.txt").getAbsolutePath();
+            PrintWriter printWriter = new PrintWriter(path, StandardCharsets.UTF_8);
+            for (Word item :
+                    dic) {
+                printWriter.println(item.getWordExplain());
+            }
+            printWriter.close();
         }
         catch(Exception e)
         {

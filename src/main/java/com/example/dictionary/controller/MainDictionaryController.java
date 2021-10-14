@@ -10,48 +10,37 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javafx.scene.input.MouseEvent;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import java.util.* ;
-import java.io.* ;
 public class MainDictionaryController {
 //    public Dictionary dictionaries = new Dictionary();
     @FXML
     private TextField searchText;
 
     @FXML
-    private ListView<String> listSearchWords;
+    private ListView<String> searchedWordsList;
 
     @FXML
     private TextArea explainTextArea;
 
     @FXML
+    private Button audioButton;
+
+    @FXML
     void onChangeInputText() {
-        listSearchWords.getItems().clear();
+        searchedWordsList.getItems().clear();
+        explainTextArea.setText("");
         ArrayList<Word> words = Dictionary.dictionarySearcher(searchText.getText());
-        for (Word word: words) {
-            listSearchWords.getItems().add(word.getWordTarget());
+        for (Word word : words) {
+            searchedWordsList.getItems().add(word.getWordTarget());
         }
+        audioButton.setDisable(true);
     }
 
     @FXML
-    void showSelectedWord() {
-        String targetWord = listSearchWords.getSelectionModel().getSelectedItem();
-        Word resWord = Dictionary.dictionaryLookup(targetWord);
-        explainTextArea.setText(resWord.getWordTarget() + "\n" + resWord.getWordExplain());
-    }
-
-    @FXML
-    protected void playWord() {
-//        String bip = "test.mp3";
-//        Media hit = new Media(new File(bip).toURI().toString());
-//        MediaPlayer mediaPlayer = new MediaPlayer(hit);
-//        mediaPlayer.play();
+    void onAudioButtonClick() {
+        String targetword = searchedWordsList.getSelectionModel().getSelectedItem();
         System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
         Voice voice = VoiceManager.getInstance().getVoice("kevin");
         ;
@@ -62,11 +51,19 @@ public class MainDictionaryController {
             voice.setRate(190);
             voice.setPitch(100);
             voice.setVolume(3);
-            String[] parts = explainTextArea.getText().split("\n");
-            voice.speak(parts[0]);
+            voice.speak(targetword);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    void showSelectedWord() {
+        String targetword = searchedWordsList.getSelectionModel().getSelectedItem();
+        Word selectedWord = Dictionary.dictionaryLookup(targetword);
+        explainTextArea.setWrapText(true);
+        explainTextArea.setText(selectedWord.getWordExplain());
+        audioButton.setDisable(false);
     }
 
     @FXML
