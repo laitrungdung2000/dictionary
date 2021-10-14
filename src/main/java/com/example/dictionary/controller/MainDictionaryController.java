@@ -43,7 +43,7 @@ public class MainDictionaryController {
     void showSelectedWord() {
         String targetWord = listSearchWords.getSelectionModel().getSelectedItem();
         Word resWord = Dictionary.dictionaryLookup(targetWord);
-        explainTextArea.setText(resWord.getWordTarget() + "\n" + resWord.getWordExplain());
+        explainTextArea.setText(resWord.getWordExplain());
     }
 
     @FXML
@@ -62,8 +62,9 @@ public class MainDictionaryController {
             voice.setRate(190);
             voice.setPitch(100);
             voice.setVolume(3);
-            String[] parts = explainTextArea.getText().split("\n");
-            voice.speak(parts[0]);
+//            String[] parts = explainTextArea.getText().split("\n");
+            String targetWord = listSearchWords.getSelectionModel().getSelectedItem();
+            voice.speak(targetWord);
         } catch (Exception e) {
             e.printStackTrace();
         }
