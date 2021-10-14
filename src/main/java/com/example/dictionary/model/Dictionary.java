@@ -1,6 +1,7 @@
 package com.example.dictionary.model;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.util.* ;
 
 public final class Dictionary
@@ -61,5 +62,38 @@ public final class Dictionary
             }
         }
         return resWord;
+    }
+
+    public static void dictionaryExportToFile() {
+        try
+        {
+            FileWriter f = new FileWriter("dictionaries.txt") ;
+
+            for(Word i:dic)
+                f.write(i.toString()+"\n") ;
+
+            f.close() ;
+
+            System.out.println("Ghi du lieu ra file thanh cong") ;
+        }
+        catch(Exception e)
+        {
+            System.out.println("Ghi du lieu ra file khong thanh cong voi loi: " + e) ;
+        }
+    }
+
+    public static void insertToFile(Word word) {
+        dic.add(word);
+        dictionaryExportToFile();
+    }
+
+    public static void updateWordInFile(int index, Word word) {
+        dic.set(index, word);
+        dictionaryExportToFile();
+    }
+
+    public static void removeWordInFile(Word word) {
+        dic.remove(word);
+        dictionaryExportToFile();
     }
 }

@@ -14,9 +14,9 @@
          </font>
       </Label>
       <Label layoutX="72.0" layoutY="79.0" text="English" />
-      <TextField layoutX="179.0" layoutY="75.0" prefHeight="24.0" prefWidth="268.0" />
+      <TextField fx:id="targetWord" layoutX="179.0" layoutY="75.0" prefHeight="24.0" prefWidth="268.0" />
       <Label layoutX="72.0" layoutY="123.0" text="Vietnamese" />
-      <TextField layoutX="179.0" layoutY="119.0" prefHeight="24.0" prefWidth="268.0" />
+      <TextField fx:id="explainWord" layoutX="179.0" layoutY="119.0" prefHeight="24.0" prefWidth="268.0" />
       <Label layoutX="72.0" layoutY="175.0" text="Pronoun" />
       <TextField layoutX="179.0" layoutY="218.0" prefHeight="24.0" prefWidth="268.0" />
       <TextField layoutX="179.0" layoutY="171.0" prefHeight="24.0" prefWidth="268.0" />
