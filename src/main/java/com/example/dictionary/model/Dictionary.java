@@ -52,6 +52,47 @@ public final class Dictionary
             System.out.println("Doc file khong thanh cong: " + e) ;
         }
     }
+
+    public static boolean addWord (Word newWord) {
+        for (int i = 0; i < dic.size(); i++) {
+            if (newWord.getWordTarget().toLowerCase()
+                    .compareTo(dic.get(i).getWordTarget().toLowerCase()) == 0) {
+                return false;
+            } else if (newWord.getWordTarget().toLowerCase()
+                    .compareTo(dic.get(i).getWordTarget().toLowerCase()) < 0) {
+                dic.add(i, newWord);
+                return true;
+            }
+        }
+        dic.add(newWord);
+        return true;
+    }
+
+    public static boolean modifyWord(int pos, Word modifyWord) {
+        boolean checkModify = true;
+        for (int i = 0; i < dic.size(); i++) {
+            if (i != pos) {
+                if (modifyWord.getWordTarget().toLowerCase()
+                        .equals(dic.get(i).getWordTarget().toLowerCase())) {
+                    checkModify = false;
+                    break;
+                }
+            }
+        }
+        if (checkModify) {
+            dic.set(pos, modifyWord);
+        }
+        return checkModify;
+    }
+
+    public static void removeWord(Word word) {
+        for (int i = 0; i < dic.size(); i++) {
+            if (word.getWordTarget().toLowerCase().equals(dic.get(i).getWordTarget())) {
+                dic.remove(word);
+            }
+        }
+    }
+
     public static ArrayList<Word> dictionarySearcher(String searchWord) {
         ArrayList<Word> resWords = new ArrayList<>();
         for (Word item : dic) {
@@ -61,6 +102,7 @@ public final class Dictionary
         }
         return resWords;
     }
+
 
     public static Word dictionaryLookup(String word_lookup) {
         ArrayList<Word> searchedWords = dictionarySearcher(word_lookup);

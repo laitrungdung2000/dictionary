@@ -5,10 +5,8 @@ import com.example.dictionary.model.Dictionary;
 import com.example.dictionary.model.Word;
 import com.sun.speech.freetts.Voice;
 import com.sun.speech.freetts.VoiceManager;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -19,7 +17,7 @@ import java.util.ArrayList;
 public class SearchWindowController {
 //    public Dictionary dictionaries = new Dictionary();
     @FXML
-    private TextField searchText;
+    private TextField searchField;
 
     @FXML
     private ListView<String> searchedWordsList;
@@ -34,10 +32,10 @@ public class SearchWindowController {
     private Button backButton;
 
     @FXML
-    void onChangeInputText() {
+    void onChangingSearchField() {
         searchedWordsList.getItems().clear();
         explainTextArea.setText("");
-        ArrayList<Word> words = Dictionary.dictionarySearcher(searchText.getText());
+        ArrayList<Word> words = Dictionary.dictionarySearcher(searchField.getText());
         for (Word word : words) {
             searchedWordsList.getItems().add(word.getWordTarget());
         }
@@ -49,7 +47,6 @@ public class SearchWindowController {
         String targetword = searchedWordsList.getSelectionModel().getSelectedItem();
         System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
         Voice voice = VoiceManager.getInstance().getVoice("kevin");
-        ;
         if (voice != null) {
             voice.allocate();
         }

@@ -28,7 +28,7 @@ public class MainMenuController {
     @FXML
     void onModifyModeButtonClick( ) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(DictionaryApplication.class.getResource("modifyWindow.fxml"));
-        Stage searchWindow = (Stage) searchModeButton.getScene().getWindow();
+        Stage searchWindow = (Stage) modifyModeButton.getScene().getWindow();
         searchWindow.setScene(new Scene(fxmlLoader.load()));
     }
 

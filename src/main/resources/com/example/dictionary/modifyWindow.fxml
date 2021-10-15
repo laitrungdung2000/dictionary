@@ -11,7 +11,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.controller.ModifyWindowController">
    <children>
       <Text layoutX="30.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modify Mode" AnchorPane.topAnchor="6.0">
@@ -19,29 +18,29 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <TextField fx:id="searchField" layoutX="28.0" layoutY="47.0" onKeyTyped="#onChangingSearchField" prefHeight="36.0" prefWidth="200.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="42.0" />
-      <ListView fx:id="selectedWordsList" layoutX="14.0" layoutY="84.0" prefHeight="309.0" prefWidth="200.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="80.0" />
-      <TextField layoutX="224.0" layoutY="80.0" prefHeight="36.0" prefWidth="180.0" AnchorPane.leftAnchor="225.0" AnchorPane.topAnchor="80.0" />
-      <TextField layoutX="406.0" layoutY="80.0" prefHeight="36.0" prefWidth="180.0" AnchorPane.leftAnchor="406.0" AnchorPane.topAnchor="80.0" />
-      <TextArea layoutX="226.0" layoutY="143.0" prefHeight="201.0" prefWidth="361.0" />
+      <TextField fx:id="searchField" layoutX="28.0" layoutY="47.0" onKeyTyped="#onChangingSearchField" prefHeight="36.0" prefWidth="200.0" promptText="Enter here..." AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="42.0" />
+      <ListView fx:id="searchedWordsList" layoutX="14.0" layoutY="84.0" onMouseClicked="#showSelectedWord" prefHeight="309.0" prefWidth="200.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="80.0" />
+      <TextField fx:id="englishTextField" layoutX="224.0" layoutY="80.0" onKeyTyped="#onTypingWord" prefHeight="36.0" prefWidth="180.0" promptText="Requied to fill out..." AnchorPane.leftAnchor="225.0" AnchorPane.topAnchor="80.0" />
+      <TextField fx:id="pronounceTextField" layoutX="406.0" layoutY="80.0" onKeyTyped="#onTypingWord" prefHeight="36.0" prefWidth="180.0" AnchorPane.leftAnchor="406.0" AnchorPane.topAnchor="80.0" />
+      <TextArea fx:id="meaningTextArea" layoutX="226.0" layoutY="143.0" onKeyTyped="#onTypingWord" prefHeight="201.0" prefWidth="361.0" promptText="Required to fill out..." />
       <Label layoutX="225.0" layoutY="60.0" prefHeight="17.0" prefWidth="63.0" text="English" />
       <Label layoutX="407.0" layoutY="60.0" prefHeight="17.0" prefWidth="111.0" text="Pronounce" />
       <Label layoutX="226.0" layoutY="124.0" prefHeight="17.0" prefWidth="126.0" text="Vietnamese Meaning" />
       <Button fx:id="backButton" layoutX="545.0" layoutY="8.0" mnemonicParsing="false" onAction="#onBackButtonClick" text="Back" />
       <HBox alignment="CENTER_RIGHT" layoutX="227.0" layoutY="351.0" prefHeight="43.0" prefWidth="361.0">
          <children>
-            <Label fx:id="statusNotification" alignment="CENTER" prefHeight="43.0" prefWidth="120.0" />
-            <Button fx:id="addButton" mnemonicParsing="false" onAction="#onAddButtonClick" prefHeight="43.0" prefWidth="60.0" text="Add">
+            <Label fx:id="statusNotification" alignment="CENTER" prefHeight="43.0" prefWidth="120.0" style="-fx-font-size: 30px;" textFill="#36ff0a" />
+            <Button fx:id="addButton" disable="true" mnemonicParsing="false" onAction="#onAddButtonClick" prefHeight="43.0" prefWidth="60.0" text="Add">
                <HBox.margin>
                   <Insets left="20.0" right="20.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="modifyButton" mnemonicParsing="false" onAction="#onModifyButtonClick" prefHeight="43.0" prefWidth="60.0" text="Modify">
+            <Button fx:id="modifyButton" disable="true" mnemonicParsing="false" onAction="#onModifyButtonClick" prefHeight="43.0" prefWidth="60.0" text="Modify">
                <HBox.margin>
                   <Insets right="20.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="removeButton" mnemonicParsing="false" onAction="#onRemoveButtonClick" prefHeight="43.0" prefWidth="60.0" text="Remove">
+            <Button fx:id="removeButton" disable="true" mnemonicParsing="false" onAction="#onRemoveButtonClick" prefHeight="43.0" prefWidth="60.0" text="Remove">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
