@@ -4,6 +4,7 @@ module com.example.dictionary {
     requires javafx.media;
     requires java.compiler;
     requires freetts;
+    requires commons.lang3;
 
     opens com.example.dictionary to javafx.fxml;
     exports com.example.dictionary;
