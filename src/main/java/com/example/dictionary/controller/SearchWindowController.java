@@ -70,20 +70,12 @@ public class SearchWindowController {
     @FXML
     void showSelectedWord() {
         String targetword = searchedWordsList.getSelectionModel().getSelectedItem();
-        Word selectedWord = Dictionary.dictionaryLookup(targetword);
-        explainTextArea.setWrapText(true);
-        explainTextArea.setText(selectedWord.getWordExplain());
-        audioButton.setDisable(false);
+        if (targetword != null) {
+            Word selectedWord = Dictionary.dictionaryLookup(targetword);
+            explainTextArea.setWrapText(true);
+            explainTextArea.setText(selectedWord.getWordExplain());
+            audioButton.setDisable(false);
+        }
     }
-
-//    @FXML
-//    protected void openAddDialog(ActionEvent event) throws IOException {
-//
-//        System.out.print(getClass().getResource(""));
-//        Parent root = FXMLLoader.load(getClass().getResource("create-word-dialog.fxml"));
-//        Dialog dialog = new Dialog();
-//        dialog.getDialogPane().setContent(root);
-//        dialog.show();
-//    }
 
 }

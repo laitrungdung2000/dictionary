@@ -142,12 +142,14 @@ public class ModifyWindowController {
     @FXML
     void showSelectedWord() {
         String targetword = searchedWordsList.getSelectionModel().getSelectedItem();
-        Word selectedWord = Dictionary.dictionaryLookup(targetword);
-        meaningTextArea.setWrapText(true);
-        String splitStrings[] = selectedWord.getWordExplain().split("\n", 3);
-        englishTextField.setText(splitStrings[0]);
-        pronounceTextField.setText(splitStrings[1]);
-        meaningTextArea.setText(splitStrings[2]);
+        if (targetword != null) {
+            Word selectedWord = Dictionary.dictionaryLookup(targetword);
+            meaningTextArea.setWrapText(true);
+            String[] splitStrings = selectedWord.getWordExplain().split("\n", 3);
+            englishTextField.setText(splitStrings[0]);
+            pronounceTextField.setText(splitStrings[1]);
+            meaningTextArea.setText(splitStrings[2]);
+        }
 
         addButton.setDisable(true);
         removeButton.setDisable(false);
