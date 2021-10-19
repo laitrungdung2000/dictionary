@@ -39,4 +39,11 @@ public class MainMenuController {
         searchWindow.setScene(new Scene(fxmlLoader.load()));
     }
 
+    @FXML
+    void onApiSearchModeButtonClick() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(DictionaryApplication.class.getResource("api-search.fxml"));
+        Stage searchWindow = (Stage) apiModeButton.getScene().getWindow();
+        searchWindow.setScene(new Scene(fxmlLoader.load()));
+    }
+
 }
