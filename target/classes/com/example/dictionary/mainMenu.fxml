@@ -38,7 +38,7 @@
                   <DropShadow blurType="ONE_PASS_BOX" height="5.0" radius="2.0" spread="0.5" width="5.0" />
                </effect>
             </Button>
-            <Button fx:id="apiModeButton" mnemonicParsing="false" onAction="#onApiSearchModeButtonClick" prefHeight="70.0" prefWidth="150.0" style="-fx-background-color: #FFD418; -fx-font-family: &quot;High Tower Text&quot;; -fx-font-size: 20px;" text="API Mode" textFill="#84771b">
+            <Button fx:id="apiModeButton" mnemonicParsing="false" onAction="#onApiModeButtonClick" prefHeight="70.0" prefWidth="150.0" style="-fx-background-color: #FFD418; -fx-font-family: &quot;High Tower Text&quot;; -fx-font-size: 20px;" text="API Mode" textFill="#84771b">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>

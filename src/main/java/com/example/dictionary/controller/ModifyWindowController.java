@@ -45,6 +45,13 @@ public class ModifyWindowController {
     private Button removeButton;
 
     @FXML
+    void initialize() {
+        for (Word word : Dictionary.getDic()) {
+            searchedWordsList.getItems().add(word.getWordTarget());
+        }
+    }
+
+    @FXML
     void onAddButtonClick() {
         statusNotification.setWrapText(true);
         String englishWord = englishTextField.getText();
@@ -86,25 +93,17 @@ public class ModifyWindowController {
 
     @FXML
     void onModifyButtonClick() {
-        int pos = -1;
-        String targetword = searchedWordsList.getSelectionModel().getSelectedItem();
-        for (int i = 0; i < Dictionary.getDic().size(); i++) {
-            if (targetword.equals(Dictionary.getDic().get(i).getWordTarget())) {
-                pos = i;
-            }
-        }
         statusNotification.setWrapText(true);
         String englishWord = englishTextField.getText();
         StringBuilder explain = new StringBuilder();
         explain.append(englishWord).append("\n")
                 .append(pronounceTextField.getText())
                 .append("\n").append(meaningTextArea.getText());
-        if (Dictionary.modifyWord(pos, new Word(englishWord, explain.toString()))) {
+        int pos = Dictionary.pos(englishWord);
+        if (pos > -1) {
+            Dictionary.modifyWord(pos, new Word(englishWord, explain.toString()));
             statusNotification.setStyle("-fx-text-fill: #36ff0a");
-            statusNotification.setText('\"' + englishWord.toLowerCase() + '\"' + " modified successfully!");
-        } else {
-            statusNotification.setStyle("-fx-text-fill: #ff1206");
-            statusNotification.setText('\"' + englishWord.toLowerCase() + '\"' + " already exists!");
+            statusNotification.setText('\"' + englishWord.toLowerCase() + '\"' + " is modified successfully!");
         }
 
         searchedWordsList.getItems().clear();
@@ -158,10 +157,9 @@ public class ModifyWindowController {
 
     @FXML
     void onTypingWord() {
-
-            if (!englishTextField.getText().equals("") && !meaningTextArea.getText().equals("")) {
-                addButton.setDisable(false);
-                if (searchedWordsList.getSelectionModel().getSelectedItem() != null) {
+        if (!englishTextField.getText().equals("") && !meaningTextArea.getText().equals("")) {
+            addButton.setDisable(false);
+            if (searchedWordsList.getSelectionModel().getSelectedItem() != null) {
                     modifyButton.setDisable(false);
                 }
             } else {
@@ -183,6 +181,12 @@ public class ModifyWindowController {
             if (selectedWord.getWordExplain().equals(explain.toString())) {
                 modifyButton.setDisable(true);
             }
+            if (Dictionary.pos(englishWord) == -1) {
+                addButton.setDisable(false);
+                modifyButton.setDisable(true);
+            }
         }
+
     }
+
 }

@@ -21,11 +21,6 @@ public class MainMenuController {
     private Button apiModeButton;
 
     @FXML
-    void onApiModeButton( ) {
-
-    }
-
-    @FXML
     void onModifyModeButtonClick( ) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(DictionaryApplication.class.getResource("modifyWindow.fxml"));
         Stage searchWindow = (Stage) modifyModeButton.getScene().getWindow();
@@ -40,8 +35,8 @@ public class MainMenuController {
     }
 
     @FXML
-    void onApiSearchModeButtonClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(DictionaryApplication.class.getResource("api-search.fxml"));
+    void onApiModeButtonClick() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(DictionaryApplication.class.getResource("apiTranslateWindow.fxml"));
         Stage searchWindow = (Stage) apiModeButton.getScene().getWindow();
         searchWindow.setScene(new Scene(fxmlLoader.load()));
     }

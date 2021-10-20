@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.controller.ApiTranslateController">
+    <children>
+        <Text layoutX="30.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Google Translate" AnchorPane.topAnchor="6.0">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Text>
+        <Button fx:id="backButton" layoutX="514.0" layoutY="9.0" mnemonicParsing="false" onAction="#onBackButtonClick" text="Back" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="8.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+        <TextArea fx:id="explainTextArea" editable="false" layoutX="21.0" layoutY="238.0" prefHeight="150.0" prefWidth="504.0" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="238.0">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextArea>
+      <Button fx:id="translateButton" layoutX="226.0" layoutY="194.0" mnemonicParsing="false" onAction="#onTranslateButtonClick" prefHeight="37.0" prefWidth="94.0" text="Translate">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <TextArea fx:id="searchField" layoutX="21.0" layoutY="45.0" onKeyTyped="#onTypingWord" prefHeight="144.0" prefWidth="504.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextArea>
+      <ComboBox fx:id="inputLanguage" layoutX="431.0" layoutY="21.0" prefHeight="26.0" prefWidth="94.0" promptText="Language">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
+      <ComboBox fx:id="explainLanguage" layoutX="431.0" layoutY="213.0" prefHeight="26.0" prefWidth="94.0" promptText="Language">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
+    </children>
+
+</AnchorPane>

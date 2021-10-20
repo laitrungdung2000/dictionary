@@ -32,6 +32,13 @@ public class SearchWindowController {
     private Button backButton;
 
     @FXML
+    void initialize() {
+        for (Word word : Dictionary.getDic()) {
+            searchedWordsList.getItems().add(word.getWordTarget());
+        }
+    }
+
+    @FXML
     void onChangingSearchField() {
         searchedWordsList.getItems().clear();
         explainTextArea.setText("");

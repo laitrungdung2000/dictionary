@@ -10,7 +10,7 @@ import java.util.* ;
 
 public final class Dictionary
 {
-    private static ArrayList<Word> dic = new ArrayList<Word>();
+    private static final ArrayList<Word> dic = new ArrayList<Word>();
 
 
     public static ArrayList<Word> getDic()
@@ -68,21 +68,18 @@ public final class Dictionary
         return true;
     }
 
-    public static boolean modifyWord(int pos, Word modifyWord) {
-        boolean checkModify = true;
+    public static int pos(String word) {
         for (int i = 0; i < dic.size(); i++) {
-            if (i != pos) {
-                if (modifyWord.getWordTarget().toLowerCase()
-                        .equals(dic.get(i).getWordTarget().toLowerCase())) {
-                    checkModify = false;
-                    break;
-                }
+            if (word
+                    .equalsIgnoreCase(dic.get(i).getWordTarget())) {
+                return i;
             }
         }
-        if (checkModify) {
-            dic.set(pos, modifyWord);
-        }
-        return checkModify;
+        return -1;
+    }
+
+    public static void modifyWord(int pos, Word modifyWord) {
+        dic.set(pos, modifyWord);
     }
 
     public static void removeWord(Word word) {
@@ -98,6 +95,9 @@ public final class Dictionary
         for (Word item : dic) {
             if (item.getWordTarget().startsWith(searchWord)) {
                 resWords.add(item);
+                if(resWords.size() == 15) {
+                    break;
+                }
             }
         }
         return resWords;
@@ -126,6 +126,7 @@ public final class Dictionary
                 printWriter.println(item.getWordExplain());
             }
             printWriter.close();
+            System.out.println("Export successfully!!");
         }
         catch(Exception e)
         {
@@ -133,18 +134,4 @@ public final class Dictionary
         }
     }
 
-    public static void insertToFile(Word word) {
-        dic.add(word);
-        dictionaryExportToFile();
-    }
-
-    public static void updateWordInFile(int index, Word word) {
-        dic.set(index, word);
-        dictionaryExportToFile();
-    }
-
-    public static void removeWordInFile(Word word) {
-        dic.remove(word);
-        dictionaryExportToFile();
-    }
 }
