@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+
 import org.apache.commons.lang3.StringEscapeUtils;
 
 public class testAPI {
@@ -17,8 +19,8 @@ public class testAPI {
 
     private static String translate(String langFrom, String langTo, String text) throws IOException {
         // INSERT YOU URL HERE
-        String urlStr = "https://script.google.com/macros/s/AKfycbyTom3_qIZb0DX5VYahGAnupKQurlpns-6FUitQYw/exec" +
-                "?q=" + URLEncoder.encode(text, "UTF-8") +
+        String urlStr = "https://script.google.com/macros/s/AKfycbyaq4XslcVvHUpAZqjIHS0ltX0yvmNQmOc06QREWdIf9zmln08pkWycXILzV9cCYilZrw/exec" +
+                "?q=" + URLEncoder.encode(text, StandardCharsets.UTF_8) +
                 "&target=" + langTo +
                 "&source=" + langFrom;
         URL url = new URL(urlStr);
