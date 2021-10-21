@@ -39,17 +39,25 @@ public class ApiTranslateController {
     private ComboBox<String> explainLanguage;
 
     @FXML
+    private ProgressBar progress;
+
+    @FXML
     void initialize() {
         inputLanguage.getItems().addAll("Auto", "English", "Vietnamese");
         inputLanguage.getSelectionModel().selectFirst();
         explainLanguage.getItems().addAll("Vietnamese", "English");
         explainLanguage.getSelectionModel().selectFirst();
+        progress.setDisable(true);
+        progress.setStyle("fx-");
+    }
 
+    @FXML
+    void onTranslateButtonPressed() {
+        progress.setProgress(0.5);
     }
 
     @FXML
     void onTranslateButtonClick() throws IOException {
-        explainTextArea.setText("Wait...");
         String inputLang = inputLanguage.getSelectionModel().getSelectedItem();
         String explainLang = explainLanguage.getSelectionModel().getSelectedItem();
 
@@ -69,8 +77,8 @@ public class ApiTranslateController {
             langTo  = "vi";
         }
         String response = translate(langFrom, langTo, searchField.getText());
-
         explainTextArea.setText(response);
+        progress.setProgress(100);
     }
 
     @FXML
@@ -103,6 +111,8 @@ public class ApiTranslateController {
     @FXML
     void onTypingWord() {
         explainTextArea.setText("");
+        progress.setDisable(true);
+        progress.setProgress(0);
     }
 
 }

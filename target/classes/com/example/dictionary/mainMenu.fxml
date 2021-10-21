@@ -10,21 +10,24 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FBF674;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.controller.MainMenuController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #b9e2f5;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.controller.MainMenuController">
    <children>
       <VBox layoutX="87.0" layoutY="74.0" prefHeight="252.0" prefWidth="150.0">
          <children>
-            <Button fx:id="searchModeButton" mnemonicParsing="false" onAction="#onSearchModeButtonClick" prefHeight="70.0" prefWidth="150.0" style="-fx-background-color: #FFD418; -fx-font-family: &quot;High Tower Text&quot;; -fx-font-size: 20px;" text="Search Mode" textFill="#84771b">
+            <Button fx:id="searchModeButton" mnemonicParsing="false" onAction="#onSearchModeButtonClick" prefHeight="70.0" prefWidth="150.0" style="-fx-background-color: #84cdee; -fx-font-family: &quot;High Tower Text&quot;; -fx-font-size: 20px;" text="Search Mode">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <font>
-                  <Font name="High Tower Text" size="12.0" />
+                  <Font name="High Tower Text" />
                </font>
                <effect>
-                  <DropShadow blurType="ONE_PASS_BOX" height="5.0" radius="2.0" spread="0.5" width="5.0" />
+                  <DropShadow blurType="ONE_PASS_BOX" height="5.0" offsetY="1.0" radius="2.0" spread="0.5" width="5.0">
+                     <color>
+                        <Color red="0.3137255012989044" green="0.7215686440467834" blue="0.9058823585510254" />
+                     </color></DropShadow>
                </effect></Button>
-            <Button fx:id="modifyModeButton" mnemonicParsing="false" onAction="#onModifyModeButtonClick" prefHeight="70.0" prefWidth="150.0" style="-fx-background-color: #FFD418; -fx-font-family: &quot;High Tower Text&quot;; -fx-font-size: 20px;" text="Modify Mode" textFill="#84771b">
+            <Button fx:id="modifyModeButton" mnemonicParsing="false" onAction="#onModifyModeButtonClick" prefHeight="70.0" prefWidth="150.0" style="-fx-background-color: #84cdee; -fx-font-family: &quot;High Tower Text&quot;; -fx-font-size: 20px;" text="Modify Mode">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
@@ -32,13 +35,16 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <font>
-                  <Font name="High Tower Text" size="12.0" />
+                  <Font name="High Tower Text" />
                </font>
                <effect>
-                  <DropShadow blurType="ONE_PASS_BOX" height="5.0" radius="2.0" spread="0.5" width="5.0" />
+                  <DropShadow blurType="ONE_PASS_BOX" height="5.0" offsetY="1.0" radius="2.0" spread="0.5" width="5.0">
+                     <color>
+                        <Color red="0.3137255012989044" green="0.7215686440467834" blue="0.9058823585510254" />
+                     </color></DropShadow>
                </effect>
             </Button>
-            <Button fx:id="apiModeButton" mnemonicParsing="false" onAction="#onApiModeButtonClick" prefHeight="70.0" prefWidth="150.0" style="-fx-background-color: #FFD418; -fx-font-family: &quot;High Tower Text&quot;; -fx-font-size: 20px;" text="API Mode" textFill="#84771b">
+            <Button fx:id="apiModeButton" mnemonicParsing="false" onAction="#onApiModeButtonClick" prefHeight="70.0" prefWidth="150.0" style="-fx-background-color: #84cdee; -fx-font-family: &quot;High Tower Text&quot;; -fx-font-size: 20px;" text="API Mode">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
@@ -46,15 +52,18 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <font>
-                  <Font name="High Tower Text" size="12.0" />
+                  <Font name="High Tower Text" />
                </font>
                <effect>
-                  <DropShadow blurType="ONE_PASS_BOX" height="5.0" radius="2.0" spread="0.5" width="5.0" />
+                  <DropShadow blurType="ONE_PASS_BOX" height="5.0" offsetY="1.0" radius="2.0" spread="0.5" width="5.0">
+                     <color>
+                        <Color red="0.3137255012989044" green="0.7215686440467834" blue="0.9058823585510254" />
+                     </color></DropShadow>
                </effect>
             </Button>
          </children>
       </VBox>
-      <Label alignment="CENTER" layoutX="282.0" layoutY="34.0" prefHeight="116.0" prefWidth="290.0" style="-fx-font-size: 36px; -fx-font-style: oblique, bold; -fx-font-family: &quot;Lucida Sans Typewriter&quot;;" text="My Dictionary" textFill="#84771b">
+      <Label alignment="CENTER" layoutX="282.0" layoutY="34.0" prefHeight="116.0" prefWidth="290.0" style="-fx-font-size: 36px; -fx-font-style: oblique, bold; -fx-font-family: &quot;Lucida Sans Typewriter&quot;; -fx-background-color: #84cdee;" text="My Dictionary">
          <font>
             <Font name="Lucida Sans Typewriter Bold Oblique" size="28.0" />
          </font>
@@ -67,16 +76,16 @@
          </effect>
 
       </Label>
-      <VBox alignment="TOP_RIGHT" layoutX="312.0" layoutY="180.0" prefHeight="116.0" prefWidth="230.0">
+      <VBox alignment="CENTER" layoutX="282.0" layoutY="186.0" prefHeight="139.0" prefWidth="290.0">
          <children>
-            <Label alignment="CENTER" prefHeight="35.0" prefWidth="230.0" style="-fx-font-family: &quot;Lucida Sans Typewriter&quot;; -fx-font-size: 15px;" text="Created by Group 10" textFill="#84771b" />
-            <Label alignment="CENTER" prefHeight="30.0" prefWidth="230.0" style="-fx-font-family: &quot;Lucida Sans Typewriter&quot;; -fx-font-size: 15px;" text="Lại Trung Dũng - 18020376" textAlignment="RIGHT" textFill="#84771b">
+            <Label alignment="CENTER" prefHeight="35.0" prefWidth="230.0" style="-fx-font-family: &quot;Lucida Sans Typewriter&quot;; -fx-font-size: 15px;" text="Created by Group 10" />
+            <Label alignment="CENTER" prefHeight="30.0" prefWidth="230.0" style="-fx-font-family: &quot;Lucida Sans Typewriter&quot;; -fx-font-size: 15px;" text="Lại Trung Dũng - 18020376" textAlignment="RIGHT">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </Label>
-            <Label alignment="CENTER" prefHeight="30.0" prefWidth="230.0" style="-fx-font-family: &quot;Lucida Sans Typewriter&quot;; -fx-font-size: 15px;" text="Thân Chí Đạt - 17020678" textAlignment="RIGHT" textFill="#84771b" />
-            <Label alignment="CENTER" prefHeight="30.0" prefWidth="230.0" style="-fx-font-family: &quot;Lucida Sans Typewriter&quot;; -fx-font-size: 15px;" text="Đỗ Văn Đạt - 19020244" textAlignment="RIGHT" textFill="#84771b" />
+            <Label alignment="CENTER" prefHeight="30.0" prefWidth="230.0" style="-fx-font-family: &quot;Lucida Sans Typewriter&quot;; -fx-font-size: 15px;" text="Thân Chí Đạt - 17020678" textAlignment="RIGHT" />
+            <Label alignment="CENTER" prefHeight="30.0" prefWidth="230.0" style="-fx-font-family: &quot;Lucida Sans Typewriter&quot;; -fx-font-size: 15px;" text="Đỗ Văn Đạt - 19020244" textAlignment="RIGHT" />
          </children>
       </VBox>
    </children>
