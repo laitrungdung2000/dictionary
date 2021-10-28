@@ -19,7 +19,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <font>
-                  <Font name="High Tower Text" />
+                  <Font name="High Tower Text" size="12.0" />
                </font>
                <effect>
                   <DropShadow blurType="ONE_PASS_BOX" height="5.0" offsetY="1.0" radius="2.0" spread="0.5" width="5.0">
@@ -35,7 +35,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <font>
-                  <Font name="High Tower Text" />
+                  <Font name="High Tower Text" size="12.0" />
                </font>
                <effect>
                   <DropShadow blurType="ONE_PASS_BOX" height="5.0" offsetY="1.0" radius="2.0" spread="0.5" width="5.0">
@@ -52,7 +52,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <font>
-                  <Font name="High Tower Text" />
+                  <Font name="High Tower Text" size="12.0" />
                </font>
                <effect>
                   <DropShadow blurType="ONE_PASS_BOX" height="5.0" offsetY="1.0" radius="2.0" spread="0.5" width="5.0">
@@ -63,7 +63,7 @@
             </Button>
          </children>
       </VBox>
-      <Label alignment="CENTER" layoutX="282.0" layoutY="34.0" prefHeight="116.0" prefWidth="290.0" style="-fx-font-size: 36px; -fx-font-style: oblique, bold; -fx-font-family: &quot;Lucida Sans Typewriter&quot;;" text="My Dictionary">
+      <Label alignment="CENTER" layoutX="282.0" layoutY="34.0" prefHeight="116.0" prefWidth="290.0" style="-fx-font-size: 36px; -fx-font-style: oblique; -fx-font-family: &quot;Lucida Sans Typewriter&quot;;" text="My Dictionary">
          <font>
             <Font name="Lucida Sans Typewriter Bold Oblique" size="28.0" />
          </font>
@@ -78,14 +78,26 @@
       </Label>
       <VBox alignment="CENTER" layoutX="282.0" layoutY="186.0" prefHeight="139.0" prefWidth="290.0">
          <children>
-            <Label alignment="CENTER" prefHeight="35.0" prefWidth="230.0" style="-fx-font-family: &quot;Lucida Sans Typewriter&quot;; -fx-font-size: 15px;" text="Created by Group 10" />
-            <Label alignment="CENTER" prefHeight="30.0" prefWidth="230.0" style="-fx-font-family: &quot;Lucida Sans Typewriter&quot;; -fx-font-size: 15px;" text="Lại Trung Dũng - 18020376" textAlignment="RIGHT">
+            <Label alignment="CENTER" prefHeight="35.0" prefWidth="291.0" style="-fx-font-family: &quot;Lucida Sans Typewriter&quot;; -fx-font-size: 15px;" text="Created by Group 10">
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font></Label>
+            <Label alignment="CENTER" prefHeight="30.0" prefWidth="290.0" style="-fx-font-family: &quot;Lucida Sans Typewriter&quot;; -fx-font-size: 15px;" text="Lại Trung Dũng - 18020376" textAlignment="RIGHT">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="30.0" prefWidth="230.0" style="-fx-font-family: &quot;Lucida Sans Typewriter&quot;; -fx-font-size: 15px;" text="Thân Chí Đạt - 17020678" textAlignment="RIGHT" />
-            <Label alignment="CENTER" prefHeight="30.0" prefWidth="230.0" style="-fx-font-family: &quot;Lucida Sans Typewriter&quot;; -fx-font-size: 15px;" text="Đỗ Văn Đạt - 19020244" textAlignment="RIGHT" />
+            <Label alignment="CENTER" prefHeight="30.0" prefWidth="293.0" style="-fx-font-family: &quot;Lucida Sans Typewriter&quot;; -fx-font-size: 15px;" text="Thân Chí Đạt - 17020678" textAlignment="RIGHT">
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font></Label>
+            <Label alignment="CENTER" prefHeight="30.0" prefWidth="292.0" style="-fx-font-family: &quot;Lucida Sans Typewriter&quot;; -fx-font-size: 15px;" text="Đỗ Văn Đạt - 19020244" textAlignment="RIGHT">
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font></Label>
          </children>
       </VBox>
    </children>

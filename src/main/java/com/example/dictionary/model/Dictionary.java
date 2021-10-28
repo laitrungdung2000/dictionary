@@ -93,7 +93,7 @@ public final class Dictionary
     public static ArrayList<Word> dictionarySearcher(String searchWord) {
         ArrayList<Word> resWords = new ArrayList<>();
         for (Word item : dic) {
-            if (item.getWordTarget().startsWith(searchWord)) {
+            if (item.getWordTarget().contains(searchWord)) {
                 resWords.add(item);
                 if(resWords.size() == 15) {
                     break;
