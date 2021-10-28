@@ -59,12 +59,19 @@ public class ModifyWindowController {
         explain.append(englishWord).append("\n")
                 .append(pronounceTextField.getText())
                 .append("\n").append(meaningTextArea.getText());
+
         if (Dictionary.addWord(new Word(englishWord, explain.toString()))) {
             statusNotification.setStyle("-fx-text-fill: #36ff0a");
             statusNotification.setText('\"' + englishWord.toLowerCase() + '\"' + " added successfully!");
         } else {
             statusNotification.setStyle("-fx-text-fill: #ff1206");
             statusNotification.setText('\"' + englishWord.toLowerCase() + '\"' + " already exists!");
+        }
+
+        searchedWordsList.getItems().clear();
+        ArrayList<Word> words = Dictionary.dictionarySearcher(searchField.getText());
+        for (Word word : words) {
+            searchedWordsList.getItems().add(word.getWordTarget());
         }
     }
 
@@ -104,6 +111,7 @@ public class ModifyWindowController {
             Dictionary.modifyWord(pos, new Word(englishWord, explain.toString()));
             statusNotification.setStyle("-fx-text-fill: #36ff0a");
             statusNotification.setText('\"' + englishWord.toLowerCase() + '\"' + " is modified successfully!");
+            modifyButton.setDisable(true);
         }
 
         searchedWordsList.getItems().clear();

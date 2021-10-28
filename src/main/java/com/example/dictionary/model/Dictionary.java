@@ -95,9 +95,6 @@ public final class Dictionary
         for (Word item : dic) {
             if (item.getWordTarget().contains(searchWord)) {
                 resWords.add(item);
-                if(resWords.size() == 15) {
-                    break;
-                }
             }
         }
         return resWords;
@@ -119,7 +116,7 @@ public final class Dictionary
     public static void dictionaryExportToFile() {
         try
         {
-            String path = new File("dictionaries1.txt").getAbsolutePath();
+            String path = new File("dictionaries.txt").getAbsolutePath();
             PrintWriter printWriter = new PrintWriter(path, StandardCharsets.UTF_8);
             for (Word item :
                     dic) {
