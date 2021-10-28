@@ -63,14 +63,14 @@
             </Button>
          </children>
       </VBox>
-      <Label alignment="CENTER" layoutX="282.0" layoutY="34.0" prefHeight="116.0" prefWidth="290.0" style="-fx-font-size: 36px; -fx-font-style: oblique, bold; -fx-font-family: &quot;Lucida Sans Typewriter&quot;; -fx-background-color: #84cdee;" text="My Dictionary">
+      <Label alignment="CENTER" layoutX="282.0" layoutY="34.0" prefHeight="116.0" prefWidth="290.0" style="-fx-font-size: 36px; -fx-font-style: oblique, bold; -fx-font-family: &quot;Lucida Sans Typewriter&quot;;" text="My Dictionary">
          <font>
             <Font name="Lucida Sans Typewriter Bold Oblique" size="28.0" />
          </font>
          <effect>
             <DropShadow height="10.0" offsetY="3.0" radius="4.5" width="10.0">
                <color>
-                  <Color red="0.6842105388641357" green="0.5174658894538879" blue="0.20779727399349213" />
+                  <Color red="0.3137255012989044" green="0.7215686440467834" blue="0.9058823585510254" />
                </color>
             </DropShadow>
          </effect>
